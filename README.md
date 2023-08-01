@@ -1,18 +1,18 @@
-## Aggressive ToDo list
+# Aggressive ToDo list
 
-# Current functionality
+## Current functionality
 
-Add a task -- 1
+Add a task -- 1 / Done
 
-Delete a task -- 2
+Delete a task -- 2 / Done
 
-View full list -- 3
+View full list -- 3 / Done
 
-Quit Program -- q
+Quit Program -- q / Done
 
-- Run continuously until quit
+- Run continuously until quit / Done
 
-# Ideas to build upon
+## Ideas to build upon
 
      - View first 5 items at start. If more than 5 items, allow show full task list
      - Allow completed tasks without deleting them. View them in a sepearte Completed tasks list
