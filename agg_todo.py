@@ -10,13 +10,13 @@ def add_task():
     tasks.append(new_task)
     print("I've added", new_task, "to your list.")
     print("Let's see if you'll actually do it you lazy cunt.")
-    print(" ")
+    #print(" ")
 
 # Delete a task
 def del_task():
     if  len(tasks) == 0:
         print("You first need to decide to actually do something before you decide not to. Stupid.")
-        print(" ")
+        #print(" ")
     else:
         print("These are your current tasks: ")
         for i, task in enumerate(tasks):
@@ -33,30 +33,32 @@ def del_task():
             print("You'll still have to finish these tasks though: ")
             for i, task in enumerate(tasks):
                 print(i + 1, task)
-            print(" ")
+            #print(" ")
         else:
             print("For fuck sake, pick a task that's there. Try again and don't fail this time!")
             print(" ")
             del_task()
-            print(" ")
+            #print(" ")
 
 
 # View the task list
 def view_tasks():
     if len(tasks) == 0:
         print("You don't have any tasks. I knew you were no good")
-        print(" ")
+        #print(" ")
     else:
         print("These are the tasks you've not done yet")
         print(" ")
         for i, task in enumerate(tasks):
             print(i + 1, task)
-    print(" ")
+    #print(" ")
     
 
 def main():
     while True:
+        print(" ")
         print("** The Aggresive To-Do list! **")
+        print(" ")
         print("1. Add a task... not like you'll do it")
         print("2. Delete a task. Because you never follow through.")
         print("3. View tasks. So you can see the things you'll never accomplish")
@@ -79,7 +81,7 @@ def main():
             break
         else:
             print("Do you not know how to use a keyboard? The options are clearly listed")
-            print(" ")
+            #print(" ")
 
 if __name__ == "__main__":
     main()
