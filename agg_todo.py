@@ -1,6 +1,6 @@
 # An Aggresive ToDo list
 # The rudest ToDo list you'll ever see
-#test
+
 
 # The list of tasks
 tasks = []
