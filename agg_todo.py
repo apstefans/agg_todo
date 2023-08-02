@@ -1,7 +1,9 @@
 # An Aggresive ToDo list
+# The rudest ToDo list you'll ever see
 
 # The list of tasks
 tasks = []
+
 # ANSI Colors
 GREEN = "\33[1;32m"
 GREENBLINK = GREEN + "\33[5;32m"
@@ -39,7 +41,6 @@ def start():
     else:
         print(GREEN + "Do you not know how to use a keyboard? The options are clearly listed" + TERMCOLOR)
 
-
 # Add a task
 def add_task():
     new_task = input(MAGENTA + "What do you think you'll accomplish? " + TERMCOLOR)
@@ -47,13 +48,11 @@ def add_task():
     tasks.append(new_task)
     print(GREENBLINK + "I've added", REDBLINK + new_task, GREENBLINK + "to your list.")
     print("Let's see if you'll actually do it you lazy cunt." + TERMCOLOR)
-    #print(" ")
 
 # Delete a task
 def del_task():
     if  len(tasks) == 0:
         print(GREEN + "You first need to decide to actually do something before you decide not to. Stupid." + TERMCOLOR)
-        #print(" ")
     else:
         print(MAGENTA + "These are your current tasks: " + TERMCOLOR)
         for i, task in enumerate(tasks):
@@ -75,15 +74,12 @@ def del_task():
                     print(MAGENTA + "Looks like your task list is empty. You really are lazy.")
                 for i, task in enumerate(tasks):
                     print(i + 1, BLUE + task)                        
-                #print(" ")
             elif choice == 0:
                 print(GREEN + "Indecisive are we?")
             else:
                 print(GREEN + "For fuck sake, pick a task that's there. Try again and don't fail this time!" + TERMCOLOR)
                 print(" ")
                 del_task()
-                
-                #print(" ")
         except:
             print(" ")
             print(YELLOWBLINK + YELLOW + "THAT'S NOT EVEN A NUMBER! WHAT ARE YOU?! " + TERMCOLOR)
@@ -92,7 +88,6 @@ def del_task():
             print(GREEN + "Anything else is" + REDBLINK + RED, "NOT" + TERMCOLOR + GREEN,"a number." + TERMCOLOR)
             print(" ")
             del_task()
-
 
 # View the task list
 def view_tasks():
@@ -113,8 +108,6 @@ def quit():
     print(YELLOWBLINK + "          .-.\n          |" + BLUE + "U" + YELLOWBLINK + "|\n          | |\n          | |\n         _| |_\n        | | | |-. \n       /|     ` |\n      | |       |\n      |         |\n      \         /\n       |       |\n       |       |\n" + TERMCOLOR)    
     print(MAGENTA + "          Cunt." + TERMCOLOR)
     exit()
-
-    
 
 def main():
     while True:
