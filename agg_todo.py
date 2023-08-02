@@ -18,7 +18,7 @@ TERMCOLOR = "\33[0m"
 # Main menu
 def start():
     print(" ")
-    print(MAGENTA + "** The " + REDBLINK + "AGGRESIVE " + TERMCOLOR + MAGENTA + "To-Do list! **" + TERMCOLOR)
+    print(MAGENTA + "** The " + RED + "AGGRESIVE " + TERMCOLOR + MAGENTA + "To-Do list! **" + TERMCOLOR)
     print(" ")
     print(MAGENTA + "1. Add a task " + TERMCOLOR + "    | Not like you'll do it")
     print(RED + "2. Delete a task " + TERMCOLOR + " | Because you never follow through")
@@ -46,7 +46,7 @@ def add_task():
     new_task = input(MAGENTA + "What do you think you'll accomplish? " + TERMCOLOR)
     print(" ")
     tasks.append(new_task)
-    print(GREENBLINK + "I've added", REDBLINK + new_task, GREENBLINK + "to your list.")
+    print(GREEN + "I've added", REDBLINK + new_task, TERMCOLOR + GREEN + "to your list.")
     print("Let's see if you'll actually do it you lazy cunt." + TERMCOLOR)
 
 # Delete a task
