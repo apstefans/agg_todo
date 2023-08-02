@@ -2,86 +2,127 @@
 
 # The list of tasks
 tasks = []
+# ANSI Colors
+GREEN = "\33[1;32m"
+GREENBLINK = GREEN + "\33[5;32m"
+MAGENTA = "\33[1;35m"
+YELLOW = "\33[1;33m"
+YELLOWBLINK = YELLOW + "\33[5;33m"
+RED = "\33[1;31m"
+REDBLINK = RED + "\33[5;31m"
+BLUE = "\33[1;34m"
+TERMCOLOR = "\33[0m"
+
+# Main menu
+def start():
+    print(" ")
+    print(MAGENTA + "** The " + REDBLINK + "AGGRESIVE " + TERMCOLOR + MAGENTA + "To-Do list! **" + TERMCOLOR)
+    print(" ")
+    print(MAGENTA + "1. Add a task. " + TERMCOLOR + "    | Not like you'll do it")
+    print(RED + "2. Delete a task. " + TERMCOLOR + " | Because you never follow through")
+    print(BLUE + "3. View tasks. " + TERMCOLOR + "    | So you can see the things you'll never accomplish")
+    print(YELLOW + "q. Quit program. " + TERMCOLOR + "  | Because your mother raised a quitter")
+    print(" ")
+    choice = input(RED + "Select an option if you can be arsed to: ")
+    print(" ")
+    if choice == "1":
+        add_task()
+        print(" ")
+    elif choice == "2":
+        del_task()
+        print(" ")
+    elif choice == "3":
+        view_tasks()
+        print(" ")
+    elif choice == "q":
+        quit()
+    else:
+        print(GREEN + "Do you not know how to use a keyboard? The options are clearly listed" + TERMCOLOR)
+
 
 # Add a task
 def add_task():
-    new_task = input("What do you think you'll accomplish? ")
+    new_task = input(MAGENTA + "What do you think you'll accomplish? " + TERMCOLOR)
     print(" ")
     tasks.append(new_task)
-    print("I've added", new_task, "to your list.")
-    print("Let's see if you'll actually do it you lazy cunt.")
+    print(GREENBLINK + "I've added", REDBLINK + new_task, GREENBLINK + "to your list.")
+    print("Let's see if you'll actually do it you lazy cunt." + TERMCOLOR)
     #print(" ")
 
 # Delete a task
 def del_task():
     if  len(tasks) == 0:
-        print("You first need to decide to actually do something before you decide not to. Stupid.")
+        print(GREEN + "You first need to decide to actually do something before you decide not to. Stupid." + TERMCOLOR)
         #print(" ")
     else:
-        print("These are your current tasks: ")
+        print(MAGENTA + "These are your current tasks: " + TERMCOLOR)
         for i, task in enumerate(tasks):
-            print(i + 1, task)
+            print(i + 1, BLUE + task + TERMCOLOR)
         print(" ")
-        choice = int(input("Which task have you given up on? "))
-        print(" ")
-        if choice > 0 and choice <= len(tasks):
-            del tasks[choice-1]
-            print("You give up too easily.")
-            print("Don't try and convince me that you actually")
-            print("completed that task.")
+        TERMCOLOR
+        try:
+            choice = int(input(MAGENTA + "Which task have you given up on? (0 to cancel) " + TERMCOLOR))
             print(" ")
-            print("You'll still have to finish these tasks though: ")
-            for i, task in enumerate(tasks):
-                print(i + 1, task)
-            #print(" ")
-        else:
-            print("For fuck sake, pick a task that's there. Try again and don't fail this time!")
+            if choice > 0 and choice <= len(tasks):
+                del tasks[choice-1]
+                print(GREEN + "You give up too easily.")
+                print("Don't try and convince me that you actually")
+                print("completed that task.")
+                print(" ")
+                if len(tasks) > 0:
+                    print(MAGENTA +"You'll still have to finish these tasks though: " + TERMCOLOR)
+                else:
+                    print(MAGENTA + "Looks like your task list is empty. You really are lazy.")
+                for i, task in enumerate(tasks):
+                    print(i + 1, BLUE + task)                        
+                #print(" ")
+            elif choice == 0:
+                print(GREEN + "Indecisive are we?")
+            else:
+                print(GREEN + "For fuck sake, pick a task that's there. Try again and don't fail this time!" + TERMCOLOR)
+                print(" ")
+                del_task()
+                
+                #print(" ")
+        except:
+            print(" ")
+            print(YELLOWBLINK + YELLOW + "THAT'S NOT EVEN A NUMBER! WHAT ARE YOU?! " + TERMCOLOR)
+            print(GREEN + "Try again, and since you need a reminder, here is a list of numbers:")
+            print(MAGENTA + "0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9")
+            print(GREEN + "Anything else is" + REDBLINK + RED, "NOT" + TERMCOLOR + GREEN,"a number." + TERMCOLOR)
             print(" ")
             del_task()
-            #print(" ")
 
 
 # View the task list
 def view_tasks():
     if len(tasks) == 0:
-        print("You don't have any tasks. I knew you were no good")
+        print(GREEN + "You don't have any tasks. I knew you were no good." + TERMCOLOR)
         #print(" ")
     else:
-        print("These are the tasks you've not done yet")
+        print(MAGENTA + "These are the tasks you've not done yet:" + TERMCOLOR)
         print(" ")
+
         for i, task in enumerate(tasks):
-            print(i + 1, task)
-    #print(" ")
+            print(i + 1, BLUE + task + TERMCOLOR)
+
+# Quit program
+def quit():
+    print(GREEN + "Fine. Go then. I didn't like you anyway.")
+    print(GREENBLINK + "." + REDBLINK + "." + YELLOWBLINK + "." + BLUE + "." + MAGENTA + "." + GREENBLINK + "." + REDBLINK + "." + YELLOWBLINK + "." + BLUE + "." + MAGENTA + "." + GREENBLINK + "." + REDBLINK + "." + YELLOWBLINK + "." + BLUE + "." + MAGENTA + "." + GREENBLINK + "." + REDBLINK + "." + YELLOWBLINK + "." + BLUE + "." + MAGENTA + "." + GREENBLINK + "." + TERMCOLOR)
+    print(YELLOWBLINK + "          .-.\n          |" + BLUE + "U" + YELLOWBLINK + "|\n          | |\n          | |\n         _| |_\n        | | | |-. \n       /|     ` |\n      | |       |\n      |         |\n      \         /\n       |       |\n       |       |\n" + TERMCOLOR)    
+    print(MAGENTA + "          Cunt." + TERMCOLOR)
+    exit()
+
     
 
 def main():
     while True:
-        print(" ")
-        print("** The Aggresive To-Do list! **")
-        print(" ")
-        print("1. Add a task... not like you'll do it")
-        print("2. Delete a task. Because you never follow through.")
-        print("3. View tasks. So you can see the things you'll never accomplish")
-        print("q. Quit program. Because your mother raised a quitter.")
-        print(" ")
-
-        choice = input("Select an option if you can be arsed to: ")
-        print(" ")
-        if choice == "1":
-            add_task()
-            print(" ")
-        elif choice == "2":
-            del_task()
-            print(" ")
-        elif choice == "3":
-            view_tasks()
-            print(" ")
-        elif choice == "q":
-            print("Fine. Go then. I didn't like you anyway. Cunt.")
-            break
-        else:
-            print("Do you not know how to use a keyboard? The options are clearly listed")
-            #print(" ")
+        start()
 
 if __name__ == "__main__":
     main()
+
+
+    
+ 
