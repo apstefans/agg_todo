@@ -2,9 +2,18 @@
 # An Aggresive ToDo list
 # The rudest ToDo list you'll ever see
 
+# Importing modules
+import pickle
+import sys
 
 # The list of tasks
 tasks = []
+
+try:
+    with open("tasks.pkl", "rb") as f:
+        tasks = pickle.load(f)
+except:
+    pass
 
 # ANSI Colors
 GREEN = "\33[1;32m"
@@ -43,11 +52,15 @@ def start():
     else:
         print(GREEN + "Do you not know how to use a keyboard? The options are clearly listed" + TERMCOLOR)
 
+
 # Add a task
 def add_task():
     new_task = input(MAGENTA + "What do you think you'll accomplish? " + TERMCOLOR)
     print(" ")
     tasks.append(new_task)
+    with open("tasks.pkl", "wb") as f:
+        pickle.dump(tasks, f)
+        f.close()
     print("\n" * 100)
     print(GREEN + "I've added", REDBLINK + new_task, TERMCOLOR + GREEN + "to your list.")
     print("Let's see if you'll actually do it you lazy cunt." + TERMCOLOR)
@@ -68,6 +81,9 @@ def del_task():
             print(" ")
             if choice > 0 and choice <= len(tasks):
                 del tasks[choice-1]
+                with open("tasks.pkl", "wb") as f:
+                    pickle.dump(tasks, f)
+                    f.close()
                 print("\n" * 100)
                 print(GREEN + "You give up too easily.")
                 print("Don't try and convince me that you actually")
@@ -117,15 +133,21 @@ def quit():
     print(GREENBLINK + "." + REDBLINK + "." + YELLOWBLINK + "." + BLUE + "." + MAGENTA + "." + GREENBLINK + "." + REDBLINK + "." + YELLOWBLINK + "." + BLUE + "." + MAGENTA + "." + GREENBLINK + "." + REDBLINK + "." + YELLOWBLINK + "." + BLUE + "." + MAGENTA + "." + GREENBLINK + "." + REDBLINK + "." + YELLOWBLINK + "." + BLUE + "." + MAGENTA + "." + GREENBLINK + "." + TERMCOLOR)
     print(YELLOWBLINK + "          .-.\n          |" + BLUE + "U" + YELLOWBLINK + "|\n          | |\n          | |\n         _| |_\n        | | | |-. \n       /|     ` |\n      | |       |\n      |         |\n      \         /\n       |       |\n       |       |\n" + TERMCOLOR)    
     print(MAGENTA + "          Cunt." + TERMCOLOR)
+    end = input("Press any button to quit")
+    from sys import exit
     exit()
 
 print("\n" * 100)
+
+# Program loop
 def main():
     while True:
         start()
 
+        
 if __name__ == "__main__":
     main()
+
 
 
     
